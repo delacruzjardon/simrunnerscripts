@@ -8,6 +8,23 @@
     "reportInterval": 10000,
     "templates": [
         {
+          "name": "Initial insert",
+          "template": "claims",
+          "op": "insert",
+          "batch": 100,
+          "threads": 10,
+          "stopAfter": 1000,
+          "comment": "Start with 1,000,000 claims"
+        },
+        {
+          "name": "Ongoing insert",
+          "template": "claims",
+          "op": "insert",
+          "threads": 1,
+          "pace": 100,
+          "comment": "Insert a new claim every 100ms"
+        },   
+        {
           "name": "claims",
           "database": "insurance",
           "collection": "claims",
